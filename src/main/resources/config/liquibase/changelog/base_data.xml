@@ -1,0 +1,168 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet author="anonymous" id="1570524765414-13-1">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM badge_type;
+            </sqlCheck>
+        </preConditions>
+        <sql>
+            INSERT INTO badge_type(name) values ('type1');
+            INSERT INTO badge_type(name) values ('type2');
+            INSERT INTO badge_type(name) values ('type3');
+        </sql>
+    </changeSet>
+
+    <changeSet author="anonymous (generated)" id="1570524765414-79">
+        <preConditions onFail="MARK_RAN">
+            <tableExists tableName="user_authority" />
+        </preConditions>
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/users.csv"
+                  separator=";"
+                  tableName="user">
+            <column name="activated" type="boolean"/>
+            <column name="created_date" type="timestamp"/>
+        </loadData>
+        <dropDefaultValue tableName="user" columnName="created_date" columnDataType="datetime"/>
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/authorities.csv"
+                  separator=";"
+                  tableName="authority"/>
+
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/users_authorities.csv"
+                  separator=";"
+                  tableName="user_authority"/>
+        <sql>
+            update user set last_visit = current_date, record_status = 'ACTIVE';
+        </sql>
+    </changeSet>
+
+    <changeSet id="1570524765414-364" author="anonymous" >
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM tier;
+            </sqlCheck>
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM province;
+            </sqlCheck>
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM city;
+            </sqlCheck>
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM district;
+            </sqlCheck>
+        </preConditions>
+        <sql>
+            INSERT INTO tier(id, name) values (1, 'T1');
+            INSERT INTO tier(id, name) values (2, 'T2');
+            INSERT INTO tier(id, name) values (3, 'T3');
+            INSERT INTO tier(id, name) values (4, 'T4');
+            INSERT INTO tier(id, name) values (5, 'T5');
+            INSERT INTO tier(id, name) values (6, 'T6');
+            INSERT INTO tier(id, name) values (7, 'T7');
+        </sql>
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/provinces.csv"
+                  separator=","
+                  tableName="province" />
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/cities.csv"
+                  separator=","
+                  tableName="city" />
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/districts.csv"
+                  separator=","
+                  tableName="district" />
+    </changeSet>
+
+    <changeSet author="anonymous" id="1570524765414-365">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM catalog;
+            </sqlCheck>
+        </preConditions>
+        <sql>
+            INSERT INTO catalog(terms_and_conditions, type) values('default terms and conditions', 1);
+        </sql>
+    </changeSet>
+
+    <changeSet id="anonymous" author="1570524765414-368-A" dbms="mysql">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="1">
+                select case when count(id) = 0 then 0 else 1 end as ct from user where tier is null;
+            </sqlCheck>
+        </preConditions>
+        <sql>
+            SET FOREIGN_KEY_CHECKS = 0;
+
+            update user
+            inner join district d on user.district_id = d.id
+            inner join city c on d.city_id = c.id
+            inner join province p on c.province_id = p.id
+            inner join tier t on c.tier_id = t.id
+            set user.city = c.name,
+            user.province = p.name,
+            user.district_name = d.name,
+            user.tier = t.name
+            WHERE user.district_id is not null;
+
+            SET FOREIGN_KEY_CHECKS = 1;
+        </sql>
+    </changeSet>
+    <changeSet author="anonymous" id="1570524765414-370" dbms="mysql">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="varchar">
+                SELECT DISTINCT DATA_TYPE
+                FROM INFORMATION_SCHEMA.COLUMNS
+                WHERE TABLE_NAME = 'badge'
+                AND COLUMN_NAME = 'description';
+            </sqlCheck>
+        </preConditions>
+        <sql>
+            delete from user_badge where badge_id in (
+            select id from badge where badge.record_status = 'DELETED'
+            );
+            delete from badge_post_survey where badge_id in (
+            select id from badge where record_status = 'DELETED'
+            );
+            delete from user_interest where badge_id in (
+            select id from badge where record_status = 'DELETED'
+            );
+            delete from badge where record_status = 'DELETED';
+
+            update badge
+            set terms_and_conditions = ''
+            where terms_and_conditions is null;
+
+            update badge
+            set prize_message = ''
+            where prize_message is null;
+
+            update badge
+            set description = ''
+            where description is null;
+
+            ALTER TABLE `badge` MODIFY `description` LONGTEXT not null;
+            ALTER TABLE `badge` MODIFY `content` LONGTEXT not null;
+            ALTER TABLE `badge` MODIFY `prize_message` LONGTEXT not null;
+        </sql>
+
+    </changeSet>
+
+    <changeSet author="anonymous" id="1570524765414-374">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                SELECT count(name) FROM authority WHERE name = 'ROLE_BRAND';
+            </sqlCheck>
+        </preConditions>
+        <insert tableName="authority">
+            <column name="name" value="ROLE_BRAND" />
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

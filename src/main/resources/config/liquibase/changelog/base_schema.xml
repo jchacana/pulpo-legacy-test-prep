@@ -1,0 +1,1577 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="javierchacana (generated)" id="1687121772037-1">
+        <createTable tableName="answer_likes">
+            <column name="user_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="answer_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-2">
+        <createTable tableName="answer_option">
+            <column name="user_answer_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="option_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-3">
+        <createTable tableName="authority">
+            <column name="name" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-4">
+        <createTable tableName="badge">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="created_on" type="TIMESTAMP"/>
+            <column defaultValue="ACTIVE" name="record_status" type="VARCHAR(255)"/>
+            <column name="updated_on" type="datetime(6)"/>
+            <column name="answer_score" type="BIGINT"/>
+            <column name="badge_type_id" type="BIGINT"/>
+            <column name="banner" type="VARCHAR(255)"/>
+            <column name="campaign_id" type="BIGINT"/>
+            <column name="content" type="LONGTEXT"/>
+            <column name="description" type="LONGTEXT"/>
+            <column name="goal_score" type="BIGINT"/>
+            <column name="image_name" type="VARCHAR(255)"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="price_image" type="VARCHAR(255)"/>
+            <column name="prize_message" type="LONGTEXT"/>
+            <column name="rank" type="INT"/>
+            <column name="review_score" type="BIGINT"/>
+            <column name="terms_and_conditions" type="LONGTEXT"/>
+            <column name="brand_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-5">
+        <createTable tableName="badge_action">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="created_on" type="TIMESTAMP"/>
+            <column defaultValue="ACTIVE" name="record_status" type="VARCHAR(255)"/>
+            <column name="updated_on" type="TIMESTAMP"/>
+            <column name="created_by" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TIMESTAMP"/>
+            <column name="answer" type="VARCHAR(255)"/>
+            <column name="approved_status" type="VARCHAR(255)"/>
+            <column name="article_id" type="BIGINT"/>
+            <column name="badge_id" type="BIGINT"/>
+            <column name="challenge_id" type="BIGINT"/>
+            <column name="link" type="VARCHAR(255)"/>
+            <column name="point" type="BIGINT"/>
+            <column name="product_id" type="BIGINT"/>
+            <column name="qualification" type="INT"/>
+            <column name="question_id" type="BIGINT"/>
+            <column name="review_id" type="BIGINT"/>
+            <column name="type" type="VARCHAR(255)"/>
+            <column name="user_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-6">
+        <createTable tableName="badge_action_detail">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="created_on" type="TIMESTAMP"/>
+            <column defaultValue="ACTIVE" name="record_status" type="VARCHAR(255)"/>
+            <column name="updated_on" type="TIMESTAMP"/>
+            <column name="created_by" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TIMESTAMP"/>
+            <column name="badge_action_id" type="BIGINT"/>
+            <column name="comment" type="LONGTEXT"/>
+            <column name="comment_count" type="INT"/>
+            <column name="favorites" type="INT"/>
+            <column name="likes" type="INT"/>
+            <column name="qualification" type="INT"/>
+            <column name="shares" type="INT"/>
+            <column name="views" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-7">
+        <createTable tableName="badge_action_image">
+            <column name="badge_action_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="image_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-8">
+        <createTable tableName="badge_challenge">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="created_on" type="TIMESTAMP"/>
+            <column defaultValue="ACTIVE" name="record_status" type="VARCHAR(255)"/>
+            <column name="updated_on" type="TIMESTAMP"/>
+            <column name="badge_challenge_status" type="VARCHAR(255)"/>
+            <column name="badge_id" type="BIGINT"/>
+            <column name="description" type="LONGTEXT"/>
+            <column name="icon" type="VARCHAR(255)"/>
+            <column name="is_canceled" type="BIT(1)"/>
+            <column name="is_qualification_required" type="BIT(1)"/>
+            <column name="link" type="VARCHAR(255)"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="score" type="BIGINT"/>
+            <column name="social_media_name" type="VARCHAR(255)"/>
+            <column name="type" type="VARCHAR(255)"/>
+            <column name="sns_service_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-9">
+        <createTable tableName="badge_post_survey">
+            <column name="badge_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-10">
+        <createTable tableName="badge_questions">
+            <column name="badge_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="question_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-11">
+        <createTable tableName="badge_type">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="created_on" type="TIMESTAMP"/>
+            <column defaultValue="ACTIVE" name="record_status" type="VARCHAR(255)"/>
+            <column name="updated_on" type="TIMESTAMP"/>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-12">
+        <createTable tableName="brand">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="created_on" type="TIMESTAMP"/>
+            <column defaultValue="ACTIVE" name="record_status" type="VARCHAR(255)"/>
+            <column name="updated_on" type="TIMESTAMP"/>
+            <column name="name" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-13">
+        <createTable tableName="campaign">
+            <column name="campaign_type_id" type="VARCHAR(1)">
+                <constraints nullable="false"/>
+            </column>
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="created_on" type="TIMESTAMP"/>
+            <column defaultValue="ACTIVE" name="record_status" type="VARCHAR(255)"/>
+            <column name="updated_on" type="TIMESTAMP"/>
+            <column name="campaign_description" type="VARCHAR(255)"/>
+            <column name="campaign_message" type="VARCHAR(255)"/>
+            <column name="challenge_due_date" type="date"/>
+            <column name="ended" type="BIT(1)"/>
+            <column name="image_name" type="VARCHAR(255)"/>
+            <column name="max_participants" type="BIGINT"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="post_survey_due_date" type="date"/>
+            <column name="pre_survey_due_date" type="date"/>
+            <column name="pre_survey_message" type="VARCHAR(255)"/>
+            <column name="terms_and_conditions" type="LONGTEXT"/>
+            <column name="type" type="VARCHAR(255)"/>
+            <column name="gift_number" type="INT"/>
+            <column name="points" type="INT"/>
+            <column name="required_questions" type="INT"/>
+            <column name="use_profile_survey" type="BIT(1)"/>
+            <column name="filter_profile_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-14">
+        <createTable tableName="campaign_member">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="created_on" type="TIMESTAMP"/>
+            <column defaultValue="ACTIVE" name="record_status" type="VARCHAR(255)"/>
+            <column name="updated_on" type="TIMESTAMP"/>
+            <column name="added_to_campaign" type="BIT(1)"/>
+            <column name="address" type="VARCHAR(255)"/>
+            <column name="answer_count" type="INT"/>
+            <column name="campaign_id" type="BIGINT"/>
+            <column name="city" type="VARCHAR(255)"/>
+            <column name="country" type="VARCHAR(255)"/>
+            <column name="district_str" type="VARCHAR(255)"/>
+            <column name="invited_to_campaign" type="BIT(1)"/>
+            <column name="invited_to_pre_survey" type="BIT(1)"/>
+            <column name="is_post_survey_disqualified" type="BIT(1)"/>
+            <column name="is_post_survey_done" type="BIT(1)"/>
+            <column name="is_pre_survey_disqualified" type="BIT(1)"/>
+            <column name="is_pre_survey_done" type="BIT(1)"/>
+            <column name="is_qualified" type="BIT(1)"/>
+            <column name="is_winner" type="BIT(1)"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="phone_number" type="VARCHAR(255)"/>
+            <column name="province" type="VARCHAR(255)"/>
+            <column name="submitted_form" type="BIT(1)"/>
+            <column name="terms_conditions" type="BIT(1)"/>
+            <column name="user_id" type="BIGINT"/>
+            <column name="district_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-15">
+        <createTable tableName="catalog">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="created_on" type="TIMESTAMP"/>
+            <column defaultValue="ACTIVE" name="record_status" type="VARCHAR(255)"/>
+            <column name="updated_on" type="TIMESTAMP"/>
+            <column name="terms_and_conditions" type="LONGTEXT"/>
+            <column name="type" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-16">
+        <createTable tableName="challenge_product">
+            <column name="challenge_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="product_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-17">
+        <createTable tableName="city">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="created_on" type="TIMESTAMP"/>
+            <column defaultValue="ACTIVE" name="record_status" type="VARCHAR(255)"/>
+            <column name="updated_on" type="TIMESTAMP"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="name_en" type="VARCHAR(255)"/>
+            <column name="province_id" type="BIGINT"/>
+            <column name="tier_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-18">
+        <createTable tableName="device_token">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="created_on" type="TIMESTAMP"/>
+            <column defaultValue="ACTIVE" name="record_status" type="VARCHAR(255)"/>
+            <column name="updated_on" type="TIMESTAMP"/>
+            <column name="device_token" type="VARCHAR(255)"/>
+            <column name="user_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-19">
+        <createTable tableName="district">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="created_on" type="TIMESTAMP"/>
+            <column defaultValue="ACTIVE" name="record_status" type="VARCHAR(255)"/>
+            <column name="updated_on" type="TIMESTAMP"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="name_en" type="VARCHAR(255)"/>
+            <column name="city_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-21">
+        <createTable tableName="follow_user">
+            <column name="follower_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-22">
+        <createTable tableName="image">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="category" type="VARCHAR(255)"/>
+            <column name="content_type" type="VARCHAR(255)"/>
+            <column name="created_date" type="TIMESTAMP"/>
+            <column name="is_resized" type="BIT(1)"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="path" type="VARCHAR(255)"/>
+            <column name="size" type="BIGINT"/>
+            <column name="user_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-23">
+        <createTable tableName="intensity_answer">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="created_on" type="TIMESTAMP"/>
+            <column defaultValue="ACTIVE" name="record_status" type="VARCHAR(255)"/>
+            <column name="updated_on" type="TIMESTAMP"/>
+            <column name="intensity_answer_code" type="VARCHAR(550)"/>
+            <column name="intensity_id" type="BIGINT"/>
+            <column name="question_id" type="BIGINT"/>
+            <column name="subject_id" type="BIGINT"/>
+            <column name="user_id" type="BIGINT"/>
+            <column name="user_answer_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-24">
+        <createTable tableName="jhi_persistent_audit_event">
+            <column autoIncrement="true" name="event_id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="event_date" type="TIMESTAMP"/>
+            <column name="event_type" type="VARCHAR(255)"/>
+            <column name="principal" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-25">
+        <createTable tableName="jhi_persistent_audit_evt_data">
+            <column name="event_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="value" type="VARCHAR(255)"/>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-26">
+        <createTable tableName="message">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="created_on" type="TIMESTAMP"/>
+            <column defaultValue="ACTIVE" name="record_status" type="VARCHAR(255)"/>
+            <column name="updated_on" type="TIMESTAMP"/>
+            <column name="category" type="VARCHAR(255)"/>
+            <column name="data" type="VARCHAR(255)"/>
+            <column name="description" type="LONGTEXT"/>
+            <column name="status" type="VARCHAR(255)"/>
+            <column name="title" type="VARCHAR(255)"/>
+            <column name="user_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-27">
+        <createTable tableName="parent_option_question">
+            <column name="question_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="option_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-28">
+        <createTable tableName="partner">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="created_on" type="TIMESTAMP"/>
+            <column defaultValue="ACTIVE" name="record_status" type="VARCHAR(255)"/>
+            <column name="updated_on" type="TIMESTAMP"/>
+            <column name="image_id" type="BIGINT"/>
+            <column name="image_name" type="VARCHAR(255)"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="url_link" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-29">
+        <createTable tableName="product">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="created_on" type="TIMESTAMP"/>
+            <column defaultValue="ACTIVE" name="record_status" type="VARCHAR(255)"/>
+            <column name="updated_on" type="TIMESTAMP"/>
+            <column name="barcode" type="VARCHAR(255)"/>
+            <column name="featured" type="BIT(1)"/>
+            <column name="image_name" type="VARCHAR(255)"/>
+            <column name="like_count" type="INT"/>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name_en" type="VARCHAR(255)"/>
+            <column name="rating" type="FLOAT(12)"/>
+            <column name="review_count" type="INT"/>
+            <column name="user_id" type="BIGINT"/>
+            <column name="view_count" type="INT"/>
+            <column name="brand_id" type="BIGINT"/>
+            <column name="category_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-30">
+        <createTable tableName="product_answer">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="created_on" type="TIMESTAMP"/>
+            <column defaultValue="ACTIVE" name="record_status" type="VARCHAR(255)"/>
+            <column name="updated_on" type="TIMESTAMP"/>
+            <column name="content" type="VARCHAR(255)"/>
+            <column name="like_count" type="INT"/>
+            <column name="question_id" type="BIGINT"/>
+            <column name="user_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-31">
+        <createTable tableName="product_badge">
+            <column name="product_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="badge_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-32">
+        <createTable tableName="product_brand">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="created_on" type="TIMESTAMP"/>
+            <column defaultValue="ACTIVE" name="record_status" type="VARCHAR(255)"/>
+            <column name="updated_on" type="TIMESTAMP"/>
+            <column name="image_name" type="VARCHAR(255)"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="name_en" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-33">
+        <createTable tableName="product_category">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="created_on" type="TIMESTAMP"/>
+            <column defaultValue="ACTIVE" name="record_status" type="VARCHAR(255)"/>
+            <column name="updated_on" type="TIMESTAMP"/>
+            <column name="image_name" type="VARCHAR(255)"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="name_en" type="VARCHAR(255)"/>
+            <column name="parent_category_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-34">
+        <createTable tableName="product_likes">
+            <column name="user_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="product_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-35">
+        <createTable tableName="product_parent_category">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="created_on" type="TIMESTAMP"/>
+            <column defaultValue="ACTIVE" name="record_status" type="VARCHAR(255)"/>
+            <column name="updated_on" type="TIMESTAMP"/>
+            <column name="image_name" type="VARCHAR(255)"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="name_en" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-36">
+        <createTable tableName="product_partner">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="created_on" type="TIMESTAMP"/>
+            <column defaultValue="ACTIVE" name="record_status" type="VARCHAR(255)"/>
+            <column name="updated_on" type="TIMESTAMP"/>
+            <column name="partner_id" type="BIGINT"/>
+            <column name="product_id" type="BIGINT"/>
+            <column name="product_price" type="FLOAT(12)"/>
+            <column name="url_link" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-37">
+        <createTable tableName="product_question">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="created_on" type="TIMESTAMP"/>
+            <column defaultValue="ACTIVE" name="record_status" type="VARCHAR(255)"/>
+            <column name="updated_on" type="TIMESTAMP"/>
+            <column name="answer_count" type="INT"/>
+            <column name="content" type="VARCHAR(255)"/>
+            <column name="like_count" type="INT"/>
+            <column name="product_id" type="BIGINT"/>
+            <column name="user_id" type="BIGINT"/>
+            <column name="view_count" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-38">
+        <createTable tableName="product_review">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="created_on" type="TIMESTAMP"/>
+            <column defaultValue="ACTIVE" name="record_status" type="VARCHAR(255)"/>
+            <column name="updated_on" type="TIMESTAMP"/>
+            <column name="content" type="VARCHAR(255)"/>
+            <column name="dislike" type="INT"/>
+            <column name="image_id" type="BIGINT"/>
+            <column name="image_name" type="VARCHAR(255)"/>
+            <column name="likes" type="INT"/>
+            <column name="product_id" type="BIGINT"/>
+            <column name="rating" type="DOUBLE"/>
+            <column name="user_id" type="BIGINT"/>
+            <column name="views" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-39">
+        <createTable tableName="product_review_images">
+            <column name="product_review_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="images_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-41">
+        <createTable tableName="province">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="created_on" type="TIMESTAMP"/>
+            <column defaultValue="ACTIVE" name="record_status" type="VARCHAR(255)"/>
+            <column name="updated_on" type="TIMESTAMP"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="name_en" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-42">
+        <createTable tableName="question">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="created_on" type="TIMESTAMP"/>
+            <column defaultValue="ACTIVE" name="record_status" type="VARCHAR(255)"/>
+            <column name="updated_on" type="TIMESTAMP"/>
+            <column name="badge_id" type="BIGINT"/>
+            <column name="campaign_id" type="BIGINT"/>
+            <column name="category" type="VARCHAR(255)"/>
+            <column name="choice_max" type="INT"/>
+            <column name="choice_min" type="INT"/>
+            <column name="image_name" type="VARCHAR(255)"/>
+            <column name="is_child" type="BIT(1)"/>
+            <column name="limit_choice" type="BIT(1)"/>
+            <column name="open_response_flag" type="BIT(1)"/>
+            <column name="open_response_text" type="VARCHAR(2000)"/>
+            <column name="question" type="VARCHAR(255)"/>
+            <column name="question_english" type="VARCHAR(2000)"/>
+            <column name="question_french" type="VARCHAR(2000)"/>
+            <column name="question_group" type="VARCHAR(255)"/>
+            <column name="question_other" type="VARCHAR(2000)"/>
+            <column name="question_spanish" type="VARCHAR(2000)"/>
+            <column name="rank" type="BIT(1)"/>
+            <column name="rank_date" type="TIMESTAMP"/>
+            <column name="type" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-43">
+        <createTable tableName="question_intensity">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="created_on" type="TIMESTAMP"/>
+            <column defaultValue="ACTIVE" name="record_status" type="VARCHAR(255)"/>
+            <column name="updated_on" type="TIMESTAMP"/>
+            <column name="child_question_id" type="BIGINT"/>
+            <column name="image_id" type="BIGINT"/>
+            <column name="image_name" type="VARCHAR(255)"/>
+            <column name="intensity" type="VARCHAR(512)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="intensity_order" type="INT"/>
+            <column name="language" type="VARCHAR(255)"/>
+            <column name="parent_question_id" type="BIGINT"/>
+            <column name="question_id" type="BIGINT"/>
+            <column name="question_intensity_code" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-44">
+        <createTable tableName="question_language_detail">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="created_on" type="TIMESTAMP"/>
+            <column defaultValue="ACTIVE" name="record_status" type="VARCHAR(255)"/>
+            <column name="updated_on" type="TIMESTAMP"/>
+            <column name="extended_question" type="VARCHAR(500)"/>
+            <column name="language" type="VARCHAR(255)"/>
+            <column name="question_description" type="VARCHAR(2000)"/>
+            <column name="question_id" type="BIGINT"/>
+            <column name="user_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-45">
+        <createTable tableName="question_likes">
+            <column name="user_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="question_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-46">
+        <createTable tableName="question_option">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="created_on" type="TIMESTAMP"/>
+            <column defaultValue="ACTIVE" name="record_status" type="VARCHAR(255)"/>
+            <column name="updated_on" type="TIMESTAMP"/>
+            <column name="image_name" type="VARCHAR(255)"/>
+            <column name="is_disqualifying" type="BIT(1)"/>
+            <column name="language" type="VARCHAR(255)"/>
+            <column name="open_response_flag" type="BIT(1)"/>
+            <column name="question_id" type="BIGINT"/>
+            <column name="question_option_code" type="VARCHAR(255)"/>
+            <column name="value" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-47">
+        <createTable tableName="question_subject">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="created_on" type="TIMESTAMP"/>
+            <column defaultValue="ACTIVE" name="record_status" type="VARCHAR(255)"/>
+            <column name="updated_on" type="TIMESTAMP"/>
+            <column name="language" type="VARCHAR(255)"/>
+            <column name="question_id" type="BIGINT"/>
+            <column name="question_subject_code" type="VARCHAR(550)"/>
+            <column name="subject" type="VARCHAR(512)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="subject_order" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-48">
+        <createTable tableName="quick_try_product">
+            <column name="quick_try_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="product_partner_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-50">
+        <createTable tableName="review_dislike">
+            <column name="user_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="review_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-51">
+        <createTable tableName="review_likes">
+            <column name="user_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="review_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-52">
+        <createTable tableName="sns_service">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="created_on" type="TIMESTAMP"/>
+            <column defaultValue="ACTIVE" name="record_status" type="VARCHAR(255)"/>
+            <column name="updated_on" type="TIMESTAMP"/>
+            <column name="detail" type="LONGTEXT"/>
+            <column name="icon" type="VARCHAR(255)"/>
+            <column name="image_id" type="BIGINT"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="rank" type="INT"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="javierchacana (generated)" id="1687121772037-55">
+        <createTable tableName="survey_options">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="campaign_id" type="BIGINT"/>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="created_on" type="TIMESTAMP"/>
+            <column name="intro_statement" type="LONGTEXT"/>
+            <column name="require_intro_statement" type="BIT(1)"/>
+            <column name="survey_category" type="VARCHAR(255)"/>
+            <column name="updated_on" type="TIMESTAMP"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-57">
+        <createTable tableName="tier">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="created_on" type="TIMESTAMP"/>
+            <column defaultValue="ACTIVE" name="record_status" type="VARCHAR(255)"/>
+            <column name="updated_on" type="TIMESTAMP"/>
+            <column name="name" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-66">
+        <createTable tableName="user">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="created_date" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="last_modified_date" type="TIMESTAMP"/>
+            <column name="activated" type="BIT(1)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="activation_key" type="VARCHAR(20)"/>
+            <column name="age" type="INT"/>
+            <column name="background_image" type="VARCHAR(1000)"/>
+            <column name="badges" type="BIGINT"/>
+            <column name="city" type="VARCHAR(255)"/>
+            <column name="coin_balance" type="INT"/>
+            <column name="country" type="VARCHAR(255)"/>
+            <column name="detail_address" type="VARCHAR(255)"/>
+            <column name="district_id" type="BIGINT"/>
+            <column name="district_name" type="VARCHAR(255)"/>
+            <column name="dob" type="TIMESTAMP"/>
+            <column name="email" type="VARCHAR(100)"/>
+            <column name="gender" type="VARCHAR(255)"/>
+            <column name="lang_key" type="VARCHAR(6)"/>
+            <column name="last_visit" type="TIMESTAMP"/>
+            <column name="login" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(50)"/>
+            <column name="nickname" type="VARCHAR(50)"/>
+            <column name="password_hash" type="VARCHAR(60)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="phone_number" type="VARCHAR(255)"/>
+            <column name="private_refcode" type="VARCHAR(255)"/>
+            <column name="profile_image" type="VARCHAR(1000)"/>
+            <column name="profile_score" type="BIGINT"/>
+            <column name="province" type="VARCHAR(255)"/>
+            <column name="qualification" type="DOUBLE"/>
+            <column name="raw_json_fetch_date" type="TIMESTAMP"/>
+            <column defaultValue="ACTIVE" name="record_status" type="VARCHAR(255)"/>
+            <column name="referred_users_count" type="BIGINT"/>
+            <column name="reset_date" type="TIMESTAMP"/>
+            <column name="reset_key" type="VARCHAR(20)"/>
+            <column name="score" type="BIGINT"/>
+            <column name="second_gender" type="VARCHAR(255)"/>
+            <column name="social_impact_score" type="BIGINT"/>
+            <column name="tier" type="VARCHAR(255)"/>
+            <column name="user_status" type="VARCHAR(255)"/>
+            <column name="wechat_social_unique_id" type="VARCHAR(255)"/>
+            <column name="weibo_raw_json_data" type="VARCHAR(255)"/>
+            <column name="weibo_social_unique_id" type="VARCHAR(255)"/>
+            <column name="brand_id" type="BIGINT"/>
+            <column name="referral_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-67">
+        <createTable tableName="user_answer">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="created_on" type="TIMESTAMP"/>
+            <column defaultValue="ACTIVE" name="record_status" type="VARCHAR(255)"/>
+            <column name="updated_on" type="TIMESTAMP"/>
+            <column name="answer" type="VARCHAR(255)"/>
+            <column name="badge_id" type="BIGINT"/>
+            <column name="date" type="date"/>
+            <column name="isskipped" type="BIT(1)"/>
+            <column name="language" type="VARCHAR(255)"/>
+            <column name="question_id" type="BIGINT"/>
+            <column name="question_option_code" type="BIGINT"/>
+            <column name="user_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-68">
+        <createTable tableName="user_authority">
+            <column name="user_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="authority_name" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-69">
+        <createTable tableName="user_badge">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="created_on" type="TIMESTAMP"/>
+            <column defaultValue="ACTIVE" name="record_status" type="VARCHAR(255)"/>
+            <column name="updated_on" type="TIMESTAMP"/>
+            <column name="badge_id" type="BIGINT"/>
+            <column name="point" type="BIGINT"/>
+            <column name="status" type="VARCHAR(255)"/>
+            <column name="user_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-70">
+        <createTable tableName="user_filter_profile">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="created_on" type="TIMESTAMP"/>
+            <column defaultValue="ACTIVE" name="record_status" type="VARCHAR(255)"/>
+            <column name="updated_on" type="TIMESTAMP"/>
+            <column name="created_by" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TIMESTAMP"/>
+            <column name="input" type="LONGTEXT"/>
+            <column name="name" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-71">
+        <createTable tableName="user_interest">
+            <column name="user_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="badge_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-72">
+        <createTable tableName="user_preference">
+            <column name="preference" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="value" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-75">
+        <addPrimaryKey columnNames="user_id, answer_id" constraintName="PRIMARY_answer_likes" tableName="answer_likes"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-76">
+        <addPrimaryKey columnNames="user_answer_id, option_id" constraintName="PRIMARY_answer_option" tableName="answer_option"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-77">
+        <addPrimaryKey columnNames="name" constraintName="PRIMARY_authority" tableName="authority"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-79">
+        <addPrimaryKey columnNames="user_id, follower_id" constraintName="PRIMARY_follow_user" tableName="follow_user"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-80">
+        <addPrimaryKey columnNames="event_id, name" constraintName="PRIMARY_jhi_persistent_audit_evt_data" tableName="jhi_persistent_audit_evt_data"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-81">
+        <addPrimaryKey columnNames="question_id, option_id" constraintName="PRIMARY_parent_option_question" tableName="parent_option_question"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-82">
+        <addPrimaryKey columnNames="product_id, badge_id" constraintName="PRIMARY_product_badge" tableName="product_badge"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-83">
+        <addPrimaryKey columnNames="user_id, product_id" constraintName="PRIMARY_product_likes" tableName="product_likes"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-84">
+        <addPrimaryKey columnNames="product_review_id, images_id" constraintName="PRIMARY_product_review_images" tableName="product_review_images"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-85">
+        <addPrimaryKey columnNames="user_id, question_id" constraintName="PRIMARY_question_likes" tableName="question_likes"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-86">
+        <addPrimaryKey columnNames="quick_try_id, product_partner_id" constraintName="PRIMARY_quick_try_product" tableName="quick_try_product"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-87">
+        <addPrimaryKey columnNames="user_id, review_id" constraintName="PRIMARY_review_dislike" tableName="review_dislike"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-88">
+        <addPrimaryKey columnNames="user_id, review_id" constraintName="PRIMARY_review_likes" tableName="review_likes"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-94">
+        <addPrimaryKey columnNames="user_id, authority_name" constraintName="PRIMARY_user_authority" tableName="user_authority"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-95">
+        <addPrimaryKey columnNames="preference, user_id" constraintName="PRIMARY_user_preference" tableName="user_preference"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-99">
+        <addUniqueConstraint columnNames="login" constraintName="UK_ew1hvam8uwaknuaellwhqchhb" tableName="user"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-100">
+        <addUniqueConstraint columnNames="images_id" constraintName="UK_h3e46ld33r4v0p7q11pp6aa94" tableName="product_review_images"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-101">
+        <addUniqueConstraint columnNames="name" constraintName="UK_jmivyxk9rmgysrmsqw15lqr5b" tableName="product"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-102">
+        <addUniqueConstraint columnNames="name" constraintName="UK_kqluvrmbaatxgbecbnynj03w4" tableName="product_brand"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-103">
+        <createIndex indexName="FK1px2sw1s6ppt7tyhxisg3l4eo" tableName="user">
+            <column name="referral_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-106">
+        <createIndex indexName="FK2igcciunp1k6cywmy0i8ffpqn" tableName="intensity_answer">
+            <column name="question_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-107">
+        <createIndex indexName="FK2jw9fpotmmbda07k27qc9t2ul" tableName="user_badge">
+            <column name="user_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-108">
+        <createIndex indexName="FK2t7lnof870sgc7nvnrpo60oi4" tableName="review_dislike">
+            <column name="review_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-109">
+        <createIndex indexName="FK36hbyigcf0n4285aj1u91ut9a" tableName="badge_challenge">
+            <column name="sns_service_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-111">
+        <createIndex indexName="FK3tj2nq5midigx2og5decvaqhr" tableName="campaign">
+            <column name="filter_profile_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-112">
+        <createIndex indexName="FK48r5yownn85beh7kwswkysr29" tableName="user">
+            <column name="brand_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-113">
+        <createIndex indexName="FK48s0j0mme5qk09cxes92uqsyb" tableName="user_answer">
+            <column name="badge_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-114">
+        <createIndex indexName="FK4bra63he459gk3an2cfjfyj2e" tableName="user_interest">
+            <column name="badge_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-115">
+        <createIndex indexName="FK4i7qgiay38tdln1h7tgyxke4l" tableName="question_language_detail">
+            <column name="question_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-116">
+        <createIndex indexName="FK5cypb0k23bovo3rn1a5jqs6j4" tableName="product">
+            <column name="category_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-117">
+        <createIndex indexName="FK62i43f3tq47vdyula85w9ot9k" tableName="question_likes">
+            <column name="question_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-119">
+        <createIndex indexName="FK6ktglpl5mjosa283rvken2py5" tableName="user_authority">
+            <column name="authority_name"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-120">
+        <createIndex indexName="FK73rm8xlw3agdh018ko14v65qh" tableName="badge_challenge">
+            <column name="badge_id"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet author="javierchacana (generated)" id="1687121772037-122">
+        <createIndex indexName="FK78cdr7qgrm9sp9igada7vk4xp" tableName="product_review">
+            <column name="user_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-123">
+        <createIndex indexName="FK7kw17ur9w2egkc51xua3yh0ux" tableName="user_answer">
+            <column name="user_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-124">
+        <createIndex indexName="FK7wd86px3v8di4mq0hopxpk4nu" tableName="badge">
+            <column name="campaign_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-125">
+        <createIndex indexName="FK7xiy8db4rdhx94yvyji2k4ix" tableName="product_partner">
+            <column name="partner_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-126">
+        <createIndex indexName="FK88s9q7gn7uu2tobg5c5p2yxs6" tableName="product_category">
+            <column name="parent_category_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-127">
+        <createIndex indexName="FK88vsk7h9s7k9g88uu9o2kst75" tableName="review_likes">
+            <column name="review_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-128">
+        <createIndex indexName="FK979liw4xk18ncpl87u4tygx2u" tableName="product">
+            <column name="user_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-129">
+        <createIndex indexName="FKb0605584uqrj7ywcfgde18n5d" tableName="campaign_member">
+            <column name="user_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-130">
+        <createIndex indexName="FKb861mupbxta7o3qo5kuhq74qs" tableName="product_answer">
+            <column name="question_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-131">
+        <createIndex indexName="FKbve8oydrsqvmf7ysbfky9yope" tableName="question_intensity">
+            <column name="question_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-132">
+        <createIndex indexName="FKccyipmwkb6gakiidb5lmi888h" tableName="challenge_product">
+            <column name="product_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-133">
+        <createIndex indexName="FKchylg7emrxfbi6i5lv3iiustd" tableName="campaign_member">
+            <column name="campaign_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-136">
+        <createIndex indexName="FKd4nyvi1qykbrpfrf8h7dwjx36" tableName="quick_try_product">
+            <column name="product_partner_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-137">
+        <createIndex indexName="FKdhf5lb6mwr9bwionygbmyxclr" tableName="product_badge">
+            <column name="badge_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-138">
+        <createIndex indexName="FKdi9smphhv09dottb2sc1j3k64" tableName="user_interest">
+            <column name="user_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-139">
+        <createIndex indexName="FKdoi2ib76c9483nb8j45ce372w" tableName="survey_options">
+            <column name="campaign_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-140">
+        <createIndex indexName="FKds8e54qv3ojlaigl2ltd0v3j1" tableName="badge_action">
+            <column name="user_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-141">
+        <createIndex indexName="FKdvy6tf9ab5e29giik2hrvh6c4" tableName="question_intensity">
+            <column name="child_question_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-142">
+        <createIndex indexName="FKe03eo1qq7k3387ew82re3segx" tableName="question">
+            <column name="campaign_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-143">
+        <createIndex indexName="FKefiddx6bailwr0sp9efix8mlf" tableName="question_language_detail">
+            <column name="user_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-144">
+        <createIndex indexName="FKer607xi5vo38lwqbi80ghd3hu" tableName="campaign_member">
+            <column name="district_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-146">
+        <createIndex indexName="FKfrbk3ugj4qcsa7kd3dwynkf1i" tableName="question_intensity">
+            <column name="parent_question_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-148">
+        <createIndex indexName="FKg52q4ikev6ykoox60aclxmeqo" tableName="challenge_product">
+            <column name="challenge_id"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet author="javierchacana (generated)" id="1687121772037-150">
+        <createIndex indexName="FKgf6ojhsui5yyf4jektivnqjf" tableName="question_subject">
+            <column name="question_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-151">
+        <createIndex indexName="FKgjqcvyo8tarphv1hh21w0gj6c" tableName="product_likes">
+            <column name="product_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-153">
+        <createIndex indexName="FKh38c6n7i4sak7n0i72gtghbnf" tableName="product_partner">
+            <column name="product_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-154">
+        <createIndex indexName="FKhmw6wbkhjmg99mruir4t1gn5b" tableName="city">
+            <column name="tier_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-155">
+        <createIndex indexName="FKhpgxs9dvv763n9idxhpwd5amk" tableName="answer_option">
+            <column name="option_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-156">
+        <createIndex indexName="FKinv3m1vfa8c8r49phhsbq74nt" tableName="answer_likes">
+            <column name="answer_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-157">
+        <createIndex indexName="FKjqx9n26pk9mqf1qo8f7xvvoq9" tableName="user_badge">
+            <column name="badge_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-158">
+        <createIndex indexName="FKk01a5alienqoxbo3jsbolelpo" tableName="badge_post_survey">
+            <column name="badge_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-159">
+        <createIndex indexName="FKkaqmhakwt05p3n0px81b9pdya" tableName="product_review">
+            <column name="product_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-160">
+        <createIndex indexName="FKkcfevpnd1v8x0krljdyncgaba" tableName="badge">
+            <column name="badge_type_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-161">
+        <createIndex indexName="FKl1d1gvb25cgg3rusexw5wn5jn" tableName="parent_option_question">
+            <column name="option_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-162">
+        <createIndex indexName="FKl9cpvf5776u5wv8l1yfcase55" tableName="badge_action_detail">
+            <column name="badge_action_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-164">
+        <createIndex indexName="FKlcyp0bh2txd3y22av6x5tmea6" tableName="badge_action_image">
+            <column name="image_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-165">
+        <createIndex indexName="FKll21eddgtrjc9f40ueeouyr8f" tableName="city">
+            <column name="province_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-166">
+        <createIndex indexName="FKmkbwrs9dndl6vk0vyyn8ixk84" tableName="intensity_answer">
+            <column name="user_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-167">
+        <createIndex indexName="FKmmdv54rmm5hkgxbn1008ix87n" tableName="question_option">
+            <column name="question_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-168">
+        <createIndex indexName="FKmvkt1rb6tm0gmdlyjyunyykm2" tableName="product">
+            <column name="brand_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-169">
+        <createIndex indexName="FKnq61ygj2kbyecwfd2oy7r8di5" tableName="follow_user">
+            <column name="follower_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-171">
+        <createIndex indexName="FKoagxubjjvou39f5vgjai4p5tp" tableName="badge_action">
+            <column name="challenge_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-172">
+        <createIndex indexName="FKotbqj9u64wq8jwnhcuixjci2q" tableName="product_question">
+            <column name="product_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-173">
+        <createIndex indexName="FKpaywgyxa4x8148ob35ej8v877" tableName="question">
+            <column name="badge_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-174">
+        <createIndex indexName="FKpqv1je0e2uyse0f1pfwq5fh5d" tableName="badge_questions">
+            <column name="badge_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-175">
+        <createIndex indexName="FKpsk90eok3ounaet92hku3gny1" tableName="user_answer">
+            <column name="question_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-176">
+        <createIndex indexName="FKpurnqmyvojgt47fxidp8rwat6" tableName="badge">
+            <column name="brand_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-177">
+        <createIndex indexName="FKq6a9571l40g6c02up8o4ky79b" tableName="user">
+            <column name="district_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-178">
+        <createIndex indexName="FKqame15rkmwcslnxg2bskoygc2" tableName="intensity_answer">
+            <column name="subject_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-179">
+        <createIndex indexName="FKqar667dspahig5janceh8any9" tableName="intensity_answer">
+            <column name="intensity_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-180">
+        <createIndex indexName="FKqdvde1fsacj8nuqjsf5tng5r1" tableName="badge_action_image">
+            <column name="badge_action_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-182">
+        <createIndex indexName="FKrfs07uw99h5vc7oe5b6ewd5d5" tableName="product_answer">
+            <column name="user_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-183">
+        <createIndex indexName="FKrvpbs9k7luc6jphca8iai923a" tableName="intensity_answer">
+            <column name="user_answer_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-186">
+        <createIndex indexName="FKsgx09prp6sk2f0we38bf2dtal" tableName="district">
+            <column name="city_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-187">
+        <createIndex indexName="FKskiqnf6l1br57b7pswy8twu8q" tableName="badge_questions">
+            <column name="question_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-188">
+        <createIndex indexName="FKsrmq88q2rn9uvfq0eyxtpfws2" tableName="badge_post_survey">
+            <column name="user_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-189">
+        <createIndex indexName="FKt1sma7v39afnnxsiayleka38p" tableName="product_question">
+            <column name="user_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-191">
+        <addForeignKeyConstraint baseColumnNames="referral_id" baseTableName="user" constraintName="FK1px2sw1s6ppt7tyhxisg3l4eo" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="user"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-194">
+        <addForeignKeyConstraint baseColumnNames="quick_try_id" baseTableName="quick_try_product" constraintName="FK2e3adx3hhertw7a9m62mqa03o" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="campaign"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-195">
+        <addForeignKeyConstraint baseColumnNames="event_id" baseTableName="jhi_persistent_audit_evt_data" constraintName="FK2ehnyx2si4tjd2nt4q7y40v8m" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="event_id" referencedTableName="jhi_persistent_audit_event"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-196">
+        <addForeignKeyConstraint baseColumnNames="question_id" baseTableName="intensity_answer" constraintName="FK2igcciunp1k6cywmy0i8ffpqn" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="question"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-197">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="user_badge" constraintName="FK2jw9fpotmmbda07k27qc9t2ul" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="user"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-198">
+        <addForeignKeyConstraint baseColumnNames="review_id" baseTableName="review_dislike" constraintName="FK2t7lnof870sgc7nvnrpo60oi4" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="product_review"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-199">
+        <addForeignKeyConstraint baseColumnNames="sns_service_id" baseTableName="badge_challenge" constraintName="FK36hbyigcf0n4285aj1u91ut9a" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="sns_service"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-201">
+        <addForeignKeyConstraint baseColumnNames="filter_profile_id" baseTableName="campaign" constraintName="FK3tj2nq5midigx2og5decvaqhr" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="user_filter_profile"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-202">
+        <addForeignKeyConstraint baseColumnNames="brand_id" baseTableName="user" constraintName="FK48r5yownn85beh7kwswkysr29" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="brand"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-203">
+        <addForeignKeyConstraint baseColumnNames="badge_id" baseTableName="user_answer" constraintName="FK48s0j0mme5qk09cxes92uqsyb" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="badge"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-204">
+        <addForeignKeyConstraint baseColumnNames="badge_id" baseTableName="user_interest" constraintName="FK4bra63he459gk3an2cfjfyj2e" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="badge"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-205">
+        <addForeignKeyConstraint baseColumnNames="question_id" baseTableName="question_language_detail" constraintName="FK4i7qgiay38tdln1h7tgyxke4l" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="question"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-206">
+        <addForeignKeyConstraint baseColumnNames="category_id" baseTableName="product" constraintName="FK5cypb0k23bovo3rn1a5jqs6j4" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="product_category"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-207">
+        <addForeignKeyConstraint baseColumnNames="question_id" baseTableName="question_likes" constraintName="FK62i43f3tq47vdyula85w9ot9k" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="product_question"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-209">
+        <addForeignKeyConstraint baseColumnNames="authority_name" baseTableName="user_authority" constraintName="FK6ktglpl5mjosa283rvken2py5" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="name" referencedTableName="authority"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-210">
+        <addForeignKeyConstraint baseColumnNames="badge_id" baseTableName="badge_challenge" constraintName="FK73rm8xlw3agdh018ko14v65qh" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="badge"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-212">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="product_review" constraintName="FK78cdr7qgrm9sp9igada7vk4xp" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="user"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-213">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="user_answer" constraintName="FK7kw17ur9w2egkc51xua3yh0ux" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="user"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-214">
+        <addForeignKeyConstraint baseColumnNames="campaign_id" baseTableName="badge" constraintName="FK7wd86px3v8di4mq0hopxpk4nu" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="campaign"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-215">
+        <addForeignKeyConstraint baseColumnNames="partner_id" baseTableName="product_partner" constraintName="FK7xiy8db4rdhx94yvyji2k4ix" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="partner"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-216">
+        <addForeignKeyConstraint baseColumnNames="parent_category_id" baseTableName="product_category" constraintName="FK88s9q7gn7uu2tobg5c5p2yxs6" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="product_parent_category"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-217">
+        <addForeignKeyConstraint baseColumnNames="review_id" baseTableName="review_likes" constraintName="FK88vsk7h9s7k9g88uu9o2kst75" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="product_review"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-218">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="review_likes" constraintName="FK8952chlrl00ephkhwmafclh8b" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="user"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-219">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="product" constraintName="FK979liw4xk18ncpl87u4tygx2u" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="user"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-220">
+        <addForeignKeyConstraint baseColumnNames="question_id" baseTableName="parent_option_question" constraintName="FK9r1bv4dpu9dj64ld1hw02h3d7" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="question"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-222">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="campaign_member" constraintName="FKb0605584uqrj7ywcfgde18n5d" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="user"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-223">
+        <addForeignKeyConstraint baseColumnNames="question_id" baseTableName="product_answer" constraintName="FKb861mupbxta7o3qo5kuhq74qs" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="product_question"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-224">
+        <addForeignKeyConstraint baseColumnNames="question_id" baseTableName="question_intensity" constraintName="FKbve8oydrsqvmf7ysbfky9yope" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="question"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-226">
+        <addForeignKeyConstraint baseColumnNames="product_id" baseTableName="challenge_product" constraintName="FKccyipmwkb6gakiidb5lmi888h" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="product"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-227">
+        <addForeignKeyConstraint baseColumnNames="campaign_id" baseTableName="campaign_member" constraintName="FKchylg7emrxfbi6i5lv3iiustd" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="campaign"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-229">
+        <addForeignKeyConstraint baseColumnNames="product_id" baseTableName="product_badge" constraintName="FKd2224857oblt61wtttl0crqh6" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="product"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-231">
+        <addForeignKeyConstraint baseColumnNames="product_partner_id" baseTableName="quick_try_product" constraintName="FKd4nyvi1qykbrpfrf8h7dwjx36" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="product_partner"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-232">
+        <addForeignKeyConstraint baseColumnNames="badge_id" baseTableName="product_badge" constraintName="FKdhf5lb6mwr9bwionygbmyxclr" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="badge"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-233">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="user_interest" constraintName="FKdi9smphhv09dottb2sc1j3k64" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="user"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-234">
+        <addForeignKeyConstraint baseColumnNames="campaign_id" baseTableName="survey_options" constraintName="FKdoi2ib76c9483nb8j45ce372w" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="campaign"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-235">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="badge_action" constraintName="FKds8e54qv3ojlaigl2ltd0v3j1" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="user"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-236">
+        <addForeignKeyConstraint baseColumnNames="child_question_id" baseTableName="question_intensity" constraintName="FKdvy6tf9ab5e29giik2hrvh6c4" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="question"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-237">
+        <addForeignKeyConstraint baseColumnNames="campaign_id" baseTableName="question" constraintName="FKe03eo1qq7k3387ew82re3segx" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="campaign"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-238">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="product_likes" constraintName="FKe5o5jwiod4djikykxrai6mwyp" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="user"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-239">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="question_language_detail" constraintName="FKefiddx6bailwr0sp9efix8mlf" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="user"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-240">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="review_dislike" constraintName="FKelgehxijtpiu0tojvcg6xx5f1" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="user"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-241">
+        <addForeignKeyConstraint baseColumnNames="district_id" baseTableName="campaign_member" constraintName="FKer607xi5vo38lwqbi80ghd3hu" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="district"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-243">
+        <addForeignKeyConstraint baseColumnNames="parent_question_id" baseTableName="question_intensity" constraintName="FKfrbk3ugj4qcsa7kd3dwynkf1i" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="question_intensity"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-245">
+        <addForeignKeyConstraint baseColumnNames="challenge_id" baseTableName="challenge_product" constraintName="FKg52q4ikev6ykoox60aclxmeqo" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="badge_challenge"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-247">
+        <addForeignKeyConstraint baseColumnNames="question_id" baseTableName="question_subject" constraintName="FKgf6ojhsui5yyf4jektivnqjf" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="question"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-248">
+        <addForeignKeyConstraint baseColumnNames="product_id" baseTableName="product_likes" constraintName="FKgjqcvyo8tarphv1hh21w0gj6c" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="product"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-249">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="follow_user" constraintName="FKglag07bsig33or7njtttnoqy9" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="user"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-251">
+        <addForeignKeyConstraint baseColumnNames="product_id" baseTableName="product_partner" constraintName="FKh38c6n7i4sak7n0i72gtghbnf" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="product"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-252">
+        <addForeignKeyConstraint baseColumnNames="tier_id" baseTableName="city" constraintName="FKhmw6wbkhjmg99mruir4t1gn5b" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="tier"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-253">
+        <addForeignKeyConstraint baseColumnNames="option_id" baseTableName="answer_option" constraintName="FKhpgxs9dvv763n9idxhpwd5amk" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="question_option"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-254">
+        <addForeignKeyConstraint baseColumnNames="product_review_id" baseTableName="product_review_images" constraintName="FKi7leruep8difnar2gol45pjdo" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="product_review"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-255">
+        <addForeignKeyConstraint baseColumnNames="images_id" baseTableName="product_review_images" constraintName="FKi93rrc2bh2pdqodvsgarakskd" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="image"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-257">
+        <addForeignKeyConstraint baseColumnNames="user_answer_id" baseTableName="answer_option" constraintName="FKieukcmupkej30yxj4x8fuxafj" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="user_answer"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-258">
+        <addForeignKeyConstraint baseColumnNames="answer_id" baseTableName="answer_likes" constraintName="FKinv3m1vfa8c8r49phhsbq74nt" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="product_answer"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-259">
+        <addForeignKeyConstraint baseColumnNames="badge_id" baseTableName="user_badge" constraintName="FKjqx9n26pk9mqf1qo8f7xvvoq9" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="badge"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-260">
+        <addForeignKeyConstraint baseColumnNames="badge_id" baseTableName="badge_post_survey" constraintName="FKk01a5alienqoxbo3jsbolelpo" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="badge"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-261">
+        <addForeignKeyConstraint baseColumnNames="product_id" baseTableName="product_review" constraintName="FKkaqmhakwt05p3n0px81b9pdya" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="product"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-262">
+        <addForeignKeyConstraint baseColumnNames="badge_type_id" baseTableName="badge" constraintName="FKkcfevpnd1v8x0krljdyncgaba" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="badge_type"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-265">
+        <addForeignKeyConstraint baseColumnNames="option_id" baseTableName="parent_option_question" constraintName="FKl1d1gvb25cgg3rusexw5wn5jn" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="question_option"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-266">
+        <addForeignKeyConstraint baseColumnNames="badge_action_id" baseTableName="badge_action_detail" constraintName="FKl9cpvf5776u5wv8l1yfcase55" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="badge_action"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-268">
+        <addForeignKeyConstraint baseColumnNames="image_id" baseTableName="badge_action_image" constraintName="FKlcyp0bh2txd3y22av6x5tmea6" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="image"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-269">
+        <addForeignKeyConstraint baseColumnNames="province_id" baseTableName="city" constraintName="FKll21eddgtrjc9f40ueeouyr8f" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="province"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-270">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="intensity_answer" constraintName="FKmkbwrs9dndl6vk0vyyn8ixk84" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="user"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-271">
+        <addForeignKeyConstraint baseColumnNames="question_id" baseTableName="question_option" constraintName="FKmmdv54rmm5hkgxbn1008ix87n" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="question"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-272">
+        <addForeignKeyConstraint baseColumnNames="brand_id" baseTableName="product" constraintName="FKmvkt1rb6tm0gmdlyjyunyykm2" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="product_brand"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-273">
+        <addForeignKeyConstraint baseColumnNames="follower_id" baseTableName="follow_user" constraintName="FKnq61ygj2kbyecwfd2oy7r8di5" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="user"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-274">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="answer_likes" constraintName="FKnuw2cyvc2powsh3oc8fwmp48j" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="user"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-276">
+        <addForeignKeyConstraint baseColumnNames="challenge_id" baseTableName="badge_action" constraintName="FKoagxubjjvou39f5vgjai4p5tp" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="badge_challenge"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-278">
+        <addForeignKeyConstraint baseColumnNames="product_id" baseTableName="product_question" constraintName="FKotbqj9u64wq8jwnhcuixjci2q" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="product"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-279">
+        <addForeignKeyConstraint baseColumnNames="badge_id" baseTableName="question" constraintName="FKpaywgyxa4x8148ob35ej8v877" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="badge"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-280">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="user_authority" constraintName="FKpqlsjpkybgos9w2svcri7j8xy" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="user"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-281">
+        <addForeignKeyConstraint baseColumnNames="badge_id" baseTableName="badge_questions" constraintName="FKpqv1je0e2uyse0f1pfwq5fh5d" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="badge"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-282">
+        <addForeignKeyConstraint baseColumnNames="question_id" baseTableName="user_answer" constraintName="FKpsk90eok3ounaet92hku3gny1" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="question"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-283">
+        <addForeignKeyConstraint baseColumnNames="brand_id" baseTableName="badge" constraintName="FKpurnqmyvojgt47fxidp8rwat6" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="brand"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-284">
+        <addForeignKeyConstraint baseColumnNames="district_id" baseTableName="user" constraintName="FKq6a9571l40g6c02up8o4ky79b" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="district"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-285">
+        <addForeignKeyConstraint baseColumnNames="subject_id" baseTableName="intensity_answer" constraintName="FKqame15rkmwcslnxg2bskoygc2" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="question_subject"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-286">
+        <addForeignKeyConstraint baseColumnNames="intensity_id" baseTableName="intensity_answer" constraintName="FKqar667dspahig5janceh8any9" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="question_intensity"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-287">
+        <addForeignKeyConstraint baseColumnNames="badge_action_id" baseTableName="badge_action_image" constraintName="FKqdvde1fsacj8nuqjsf5tng5r1" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="badge_action"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-289">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="product_answer" constraintName="FKrfs07uw99h5vc7oe5b6ewd5d5" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="user"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-290">
+        <addForeignKeyConstraint baseColumnNames="user_answer_id" baseTableName="intensity_answer" constraintName="FKrvpbs9k7luc6jphca8iai923a" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="user_answer"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-291">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="question_likes" constraintName="FKs9lx1s4tuukw2ijmllefdoawk" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="user"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-294">
+        <addForeignKeyConstraint baseColumnNames="city_id" baseTableName="district" constraintName="FKsgx09prp6sk2f0we38bf2dtal" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="city"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-295">
+        <addForeignKeyConstraint baseColumnNames="question_id" baseTableName="badge_questions" constraintName="FKskiqnf6l1br57b7pswy8twu8q" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="question"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-296">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="badge_post_survey" constraintName="FKsrmq88q2rn9uvfq0eyxtpfws2" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="user"/>
+    </changeSet>
+    <changeSet author="javierchacana (generated)" id="1687121772037-297">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="product_question" constraintName="FKt1sma7v39afnnxsiayleka38p" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="user"/>
+    </changeSet>
+</databaseChangeLog>
